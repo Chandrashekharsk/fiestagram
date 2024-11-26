@@ -1,3 +1,4 @@
+import CreatePost from "./CreatePost";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { setAuthUser, setToken } from "@/redux/authSlice";
 import { useDispatch, useSelector } from "react-redux";
@@ -14,7 +15,6 @@ import {
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import { useState } from "react";
-import CreatePost from "./createPost";
 import { setPosts, setSelectedPost } from "@/redux/postSlice";
 import { FaInstagram } from "react-icons/fa";
 import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
