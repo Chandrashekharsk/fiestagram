@@ -138,9 +138,9 @@ export const login = async (req, res) => {
       // secure: false,
       // sameSite: "strict",
 
-       // for production
-        sameSite: "none",
-        secure: true,
+      // for production
+      sameSite: "none",
+      secure: true,
     })
     .json({
       message: `Welcome back ${user.username}`,
@@ -355,7 +355,7 @@ export const checkToken = async (req,res) => {
         verificationError: false,
       });
     }
-    if(!token){
+    else{
       console.log("intoken not found ")
       return res.status(200).json({
         success: false,
@@ -363,6 +363,7 @@ export const checkToken = async (req,res) => {
         verificationError: false,
       });
     }
+    
   } catch (error) {
     console.error("Token checking Error:", error.message);
     res.status(500).json({

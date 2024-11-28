@@ -3,10 +3,10 @@ import dotenv from "dotenv";
 dotenv.config();
 
 const AuthMiddleware = async (req, res, next) => {
+  console.log("headers -> ", req.headers);
   try {
-    const authToken =(req.headers?.Authorization?.split(" ")[1]);
     const token =
-      req.cookies?.token || (req.headers?.Authorization?.split(" ")[1]);
+      req.cookies?.token || req.headers?.authorization?.split(" ")[1];
     if (!token) {
       return res.status(401).json({
         message: "User not authenticated",
