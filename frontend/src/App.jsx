@@ -15,8 +15,7 @@ import { setOnlineUsers } from './redux/chatSlice';
 import { setSelectedUser } from './redux/authSlice';
 import { setLikeNotification } from './redux/notificationSlice';
 import ProtectedRoutes from './components/ProtectedRoutes';
-const API_URL = import.meta.env.VITE_API_URL;
-console.log("ApiUrl ", `${API_URL}`);
+
 
 const browserRouter = createBrowserRouter([
   {
@@ -52,6 +51,8 @@ const browserRouter = createBrowserRouter([
 ]);
 
 
+
+
 function App() {
   const { user } = useSelector((store) => store.auth);
   const {socket} = useSelector((store)=>store.socketio);
@@ -61,7 +62,7 @@ function App() {
     dispatch(setSelectedUser(null));
 
     if (user) {
-      const socketio = io("http://localhost:8000", {
+      const socketio = io(`${import.meta.env.VITE_WEB_SOCKET_URL}`, {
         query: {
           userId: user._id,
         },

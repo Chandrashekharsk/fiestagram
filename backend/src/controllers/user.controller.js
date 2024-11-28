@@ -135,12 +135,12 @@ export const login = async (req, res) => {
       maxAge: 5 * 60 * 60 * 1000, // 5 hours in milliseconds
 
       // for development
-      // secure: false,
-      // sameSite: "strict",
+      secure: false,
+      sameSite: "strict",
 
        // for production
-        secure: true,
-        sameSite: "none",
+        // sameSite: "none",
+        // secure: true,
     })
     .json({
       message: `Welcome back ${user.username}`,
