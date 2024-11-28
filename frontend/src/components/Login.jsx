@@ -50,7 +50,7 @@ const Login = () => {
         const checkTokenResponse = await axios.get(`${import.meta.env.VITE_API_URL}/user/checkToken`,{
           withCredentials: true,
         })
-        if(checkTokenResponse.data.success){
+        if(!checkTokenResponse.data.success){
           toast.info("Cookies have blocked by browser!");
           dispatch(setToken(res.data.token))
         }
